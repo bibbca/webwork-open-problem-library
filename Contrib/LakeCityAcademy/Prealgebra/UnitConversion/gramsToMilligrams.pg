@@ -2,7 +2,7 @@
 ## DBchapter()
 ## DBsection()
 ## Level()
-## KEYWORDS('conversions','units','temperature','celsius','fahrenheit')
+## KEYWORDS('conversions','units','grams','milligrams')
 ## TitleText1()
 ## AuthorText1()
 ## Section1()
@@ -10,7 +10,7 @@
 ## Author(Caleb Bibb)
 ## Institution(Lake City Academy)
 
-## Students will convert Celsius temperature to Fahrenheit temperature.
+## Students will convert grams to milligrams.
 
 
 
@@ -29,17 +29,16 @@ TEXT(beginproblem());
 #  Setup
 
 Context("Numeric");
-$c = random(1,100,1);
-$f = 9 * $c / 5 + 32;
-$formatF = sprintf("%.2f", $f ); # round to 2 places after decimal point
-$answer = NumberWithUnits("$formatF","degF");
+$grams = random(20,40,1);
+$mg = $grams * 1000;
+$answer = NumberWithUnits("$mg","mg");
 
 ######################################
 #  Main text
 
 BEGIN_TEXT
 
-Convert \($c^{\circ}\text{C}\) to degrees Farenheit. Round to the nearest hundredth and remember your units.
+One service of gourmet ice cream has $grams grams of fat.  Convert this to milligrams.
 $BR
 \{ ans_rule(10) \}
 \{ helpLink("units") \}

@@ -2,7 +2,7 @@
 ## DBchapter()
 ## DBsection()
 ## Level()
-## KEYWORDS('conversions','units','temperature','celsius','fahrenheit')
+## KEYWORDS('conversions','units','hours','days')
 ## TitleText1()
 ## AuthorText1()
 ## Section1()
@@ -10,8 +10,7 @@
 ## Author(Caleb Bibb)
 ## Institution(Lake City Academy)
 
-## Students will convert Celsius temperature to Fahrenheit temperature.
-
+## Students will convert days to hours.
 
 
 DOCUMENT();        # This should be the first executable line in the problem.
@@ -29,17 +28,17 @@ TEXT(beginproblem());
 #  Setup
 
 Context("Numeric");
-$c = random(1,100,1);
-$f = 9 * $c / 5 + 32;
-$formatF = sprintf("%.2f", $f ); # round to 2 places after decimal point
-$answer = NumberWithUnits("$formatF","degF");
+$days = random(2,14,1);
+$hours = random(2,23,1);
+$total = ($days*24) + $hours;
+$answer = NumberWithUnits("$total","hr");
 
 ######################################
 #  Main text
 
 BEGIN_TEXT
 
-Convert \($c^{\circ}\text{C}\) to degrees Farenheit. Round to the nearest hundredth and remember your units.
+Mr. Bibb's cruise lasted $days days and $hours hours.  Convert the time to hours. (Remember to include the units in your answer.)
 $BR
 \{ ans_rule(10) \}
 \{ helpLink("units") \}

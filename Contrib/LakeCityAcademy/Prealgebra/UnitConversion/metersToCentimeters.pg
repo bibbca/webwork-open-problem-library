@@ -2,7 +2,7 @@
 ## DBchapter()
 ## DBsection()
 ## Level()
-## KEYWORDS('conversions','units','temperature','celsius','fahrenheit')
+## KEYWORDS('conversions','units','meters','centimeters','length')
 ## TitleText1()
 ## AuthorText1()
 ## Section1()
@@ -10,7 +10,7 @@
 ## Author(Caleb Bibb)
 ## Institution(Lake City Academy)
 
-## Students will convert Celsius temperature to Fahrenheit temperature.
+## Students will convert meters to centimeters.
 
 
 
@@ -29,17 +29,18 @@ TEXT(beginproblem());
 #  Setup
 
 Context("Numeric");
-$c = random(1,100,1);
-$f = 9 * $c / 5 + 32;
-$formatF = sprintf("%.2f", $f ); # round to 2 places after decimal point
-$answer = NumberWithUnits("$formatF","degF");
+$sonCM = random(50,150,1);
+$dadM = random(1,2,0.1);
+$dadCM = $dadM * 100;
+$diff = $dadCM - $sonCM;
+$answer = NumberWithUnits("$diff","cm");
 
 ######################################
 #  Main text
 
 BEGIN_TEXT
 
-Convert \($c^{\circ}\text{C}\) to degrees Farenheit. Round to the nearest hundredth and remember your units.
+Matthias is $dadM meters tall.  His son is $sonCM centimeters tall.  How much taller, in centimeters, is Matthias than his son?
 $BR
 \{ ans_rule(10) \}
 \{ helpLink("units") \}

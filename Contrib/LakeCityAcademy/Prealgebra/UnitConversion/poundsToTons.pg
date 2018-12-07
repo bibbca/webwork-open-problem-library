@@ -2,7 +2,7 @@
 ## DBchapter()
 ## DBsection()
 ## Level()
-## KEYWORDS('conversions','units','temperature','celsius','fahrenheit')
+## KEYWORDS('conversions','units','force','pounds','tons')
 ## TitleText1()
 ## AuthorText1()
 ## Section1()
@@ -10,7 +10,8 @@
 ## Author(Caleb Bibb)
 ## Institution(Lake City Academy)
 
-## Students will convert Celsius temperature to Fahrenheit temperature.
+## Students will convert pounds to tons.
+
 
 
 
@@ -29,17 +30,16 @@ TEXT(beginproblem());
 #  Setup
 
 Context("Numeric");
-$c = random(1,100,1);
-$f = 9 * $c / 5 + 32;
-$formatF = sprintf("%.2f", $f ); # round to 2 places after decimal point
-$answer = NumberWithUnits("$formatF","degF");
+$lbs = random(25000,40000,1000);
+$ton = $lbs / 2000;
+$answer = NumberWithUnits("$ton","ton");
 
 ######################################
 #  Main text
 
 BEGIN_TEXT
 
-Convert \($c^{\circ}\text{C}\) to degrees Farenheit. Round to the nearest hundredth and remember your units.
+An empty bus weighs $lbs pounds.  Convert the weight to tons (Remember to include the units in your answer).
 $BR
 \{ ans_rule(10) \}
 \{ helpLink("units") \}

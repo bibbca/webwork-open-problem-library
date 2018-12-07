@@ -2,7 +2,7 @@
 ## DBchapter()
 ## DBsection()
 ## Level()
-## KEYWORDS('conversions','units','temperature','celsius','fahrenheit')
+## KEYWORDS('conversions','units','time','weeks','minutes')
 ## TitleText1()
 ## AuthorText1()
 ## Section1()
@@ -10,7 +10,7 @@
 ## Author(Caleb Bibb)
 ## Institution(Lake City Academy)
 
-## Students will convert Celsius temperature to Fahrenheit temperature.
+## Students will convert weeks to minutes.
 
 
 
@@ -29,17 +29,16 @@ TEXT(beginproblem());
 #  Setup
 
 Context("Numeric");
-$c = random(1,100,1);
-$f = 9 * $c / 5 + 32;
-$formatF = sprintf("%.2f", $f ); # round to 2 places after decimal point
-$answer = NumberWithUnits("$formatF","degF");
+$a = random(2,12,1);
+$min = $a * 7 * 24 * 60;
+$answer = NumberWithUnits("$min","min");
 
 ######################################
 #  Main text
 
 BEGIN_TEXT
 
-Convert \($c^{\circ}\text{C}\) to degrees Farenheit. Round to the nearest hundredth and remember your units.
+Lindsay is going with her family to their summer home.  She will be away for $a weeks.  How many minutes is that?
 $BR
 \{ ans_rule(10) \}
 \{ helpLink("units") \}

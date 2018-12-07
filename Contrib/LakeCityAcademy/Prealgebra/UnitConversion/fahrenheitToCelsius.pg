@@ -10,8 +10,7 @@
 ## Author(Caleb Bibb)
 ## Institution(Lake City Academy)
 
-## Students will convert Celsius temperature to Fahrenheit temperature.
-
+## Students will convert Farenheit temperature to Celsius temperature.
 
 
 DOCUMENT();        # This should be the first executable line in the problem.
@@ -29,17 +28,17 @@ TEXT(beginproblem());
 #  Setup
 
 Context("Numeric");
-$c = random(1,100,1);
-$f = 9 * $c / 5 + 32;
-$formatF = sprintf("%.2f", $f ); # round to 2 places after decimal point
-$answer = NumberWithUnits("$formatF","degF");
+$f = random(40,212,1);
+$c = (5 / 9)*($f - 32);
+$formatC = sprintf("%.2f", $c ); # round to 2 places after decimal point
+$answer = NumberWithUnits("$formatC","degC");
 
 ######################################
 #  Main text
 
 BEGIN_TEXT
 
-Convert \($c^{\circ}\text{C}\) to degrees Farenheit. Round to the nearest hundredth and remember your units.
+Convert \($f^{\circ}\text{F}\) to degrees Celsius. Round to the nearest hundredth and remember your units.
 $BR
 \{ ans_rule(10) \}
 \{ helpLink("units") \}

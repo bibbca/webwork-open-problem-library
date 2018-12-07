@@ -2,7 +2,7 @@
 ## DBchapter()
 ## DBsection()
 ## Level()
-## KEYWORDS('conversions','units','temperature','celsius','fahrenheit')
+## KEYWORDS('conversions','units','pounds','ounces')
 ## TitleText1()
 ## AuthorText1()
 ## Section1()
@@ -10,7 +10,8 @@
 ## Author(Caleb Bibb)
 ## Institution(Lake City Academy)
 
-## Students will convert Celsius temperature to Fahrenheit temperature.
+## Students will convert a measurement with pounds and ounces to pounds.
+
 
 
 
@@ -29,17 +30,17 @@ TEXT(beginproblem());
 #  Setup
 
 Context("Numeric");
-$c = random(1,100,1);
-$f = 9 * $c / 5 + 32;
-$formatF = sprintf("%.2f", $f ); # round to 2 places after decimal point
-$answer = NumberWithUnits("$formatF","degF");
+$lbs = random(4,11,1);
+$oz = random(1,15,1);
+$total = $lbs + ($oz / 16);
+$answer = NumberWithUnits("$total","lb");
 
 ######################################
 #  Main text
 
 BEGIN_TEXT
 
-Convert \($c^{\circ}\text{C}\) to degrees Farenheit. Round to the nearest hundredth and remember your units.
+Mr. Robert's baby weighed $lbs pounds $oz ounces at birth.  Convert the weight to pounds (remember to include the units in your answer).
 $BR
 \{ ans_rule(10) \}
 \{ helpLink("units") \}
