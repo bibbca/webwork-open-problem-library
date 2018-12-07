@@ -1,0 +1,59 @@
+## DBsubject(Prealgebra)
+## DBchapter()
+## DBsection()
+## Level()
+## KEYWORDS('conversions','units','pounds','ounces')
+## TitleText1()
+## AuthorText1()
+## Section1()
+## Problem1()
+## Author(Caleb Bibb)
+## Institution(Lake City Academy)
+
+## Students will convert a measurement with pounds and ounces to pounds.
+
+
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "parserNumberWithUnits.pl",
+  "parserFormulaWithUnits.pl",
+);
+
+TEXT(beginproblem());
+
+######################################
+#  Setup
+
+Context("Numeric");
+$lbs = random(4,11,1);
+$oz = random(1,15,1);
+$total = $lbs + ($oz / 16);
+$answer = NumberWithUnits("$total","lb");
+
+######################################
+#  Main text
+
+BEGIN_TEXT
+
+Mr. Robert's baby weighed $lbs pounds $oz ounces at birth.  Convert the weight to pounds (remember to include the units in your answer).
+$BR
+\{ ans_rule(10) \}
+\{ helpLink("units") \}
+END_TEXT
+
+######################################
+#  Answers
+
+$showPartialCorrectAnswers = 1;
+ANS($answer->cmp() );
+
+
+######################################
+
+
+ENDDOCUMENT();

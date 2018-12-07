@@ -1,0 +1,64 @@
+## DBsubject(Prealgebra)
+## DBchapter()
+## DBsection()
+## Level()
+## KEYWORDS('conversions','units', 'pounds')
+## TitleText1()
+## AuthorText1()
+## Section1()
+## Problem1()
+## Author(Caleb Bibb)
+## Institution(Lake City Academy)
+
+## Students will add several measurements with pounds and ounces.
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "parserNumberWithUnits.pl",
+  "parserFormulaWithUnits.pl",
+);
+
+TEXT(beginproblem());
+
+######################################
+#  Setup
+
+Context("Numeric");
+$fish1Pound = random(0,5,1);
+$fish1ounce = random(2,16,1);
+$fish2Pound = random(0,5,1);
+$fish2ounce = random(2,16,1);
+$fish3Pound = random(0,5,1);
+$fish3ounce = random(2,16,1);
+$totalOunces = $fish1ounce + $fish2ounce + $fish3ounce;
+$convertOunce = $totalOunces / 16;
+$totalPounds = $fish1Pound + $fish2Pound + $fish3Pound + $convertOunce;
+$answer = NumberWithUnits("$totalPounds","lb");
+
+######################################
+#  Main text
+
+BEGIN_TEXT
+
+Kayla caught three fish.  The weights of the fish were $fish1Pound pounds $fish1ounce ounces, $fish2Pound pounds $fish2ounce ounces, and $fish3Pound pounds $fish3ounce ounces.  What was the total weight of the three fish in pounds?
+$BR
+\{ ans_rule(10) \}
+\{ helpLink("units") \}
+
+END_TEXT
+
+######################################
+#  Answers
+
+$showPartialCorrectAnswers = 1;
+ANS($answer->cmp() );
+
+
+######################################
+
+
+ENDDOCUMENT();

@@ -1,0 +1,57 @@
+## DBsubject(Prealgebra)
+## DBchapter()
+## DBsection()
+## Level()
+## KEYWORDS('conversions','units','hours','days')
+## TitleText1()
+## AuthorText1()
+## Section1()
+## Problem1()
+## Author(Caleb Bibb)
+## Institution(Lake City Academy)
+
+## Students will convert days to hours.
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "parserNumberWithUnits.pl",
+  "parserFormulaWithUnits.pl",
+);
+
+TEXT(beginproblem());
+
+######################################
+#  Setup
+
+Context("Numeric");
+$days = random(2,14,1);
+$hours = random(2,23,1);
+$total = ($days*24) + $hours;
+$answer = NumberWithUnits("$total","hr");
+
+######################################
+#  Main text
+
+BEGIN_TEXT
+
+Mr. Bibb's cruise lasted $days days and $hours hours.  Convert the time to hours. (Remember to include the units in your answer.)
+$BR
+\{ ans_rule(10) \}
+\{ helpLink("units") \}
+END_TEXT
+
+######################################
+#  Answers
+
+$showPartialCorrectAnswers = 1;
+ANS($answer->cmp() );
+
+
+######################################
+
+
+ENDDOCUMENT();

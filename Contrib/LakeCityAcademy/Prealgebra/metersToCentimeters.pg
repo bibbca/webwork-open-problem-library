@@ -1,0 +1,59 @@
+## DBsubject(Prealgebra)
+## DBchapter()
+## DBsection()
+## Level()
+## KEYWORDS('conversions','units','meters','centimeters','length')
+## TitleText1()
+## AuthorText1()
+## Section1()
+## Problem1()
+## Author(Caleb Bibb)
+## Institution(Lake City Academy)
+
+## Students will convert meters to centimeters.
+
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "parserNumberWithUnits.pl",
+  "parserFormulaWithUnits.pl",
+);
+
+TEXT(beginproblem());
+
+######################################
+#  Setup
+
+Context("Numeric");
+$sonCM = random(50,150,1);
+$dadM = random(1,2,0.1);
+$dadCM = $dadM * 100;
+$diff = $dadCM - $sonCM;
+$answer = NumberWithUnits("$diff","cm");
+
+######################################
+#  Main text
+
+BEGIN_TEXT
+
+Matthias is $dadM meters tall.  His son is $sonCM centimeters tall.  How much taller, in centimeters, is Matthias than his son?
+$BR
+\{ ans_rule(10) \}
+\{ helpLink("units") \}
+END_TEXT
+
+######################################
+#  Answers
+
+$showPartialCorrectAnswers = 1;
+ANS($answer->cmp() );
+
+
+######################################
+
+
+ENDDOCUMENT();

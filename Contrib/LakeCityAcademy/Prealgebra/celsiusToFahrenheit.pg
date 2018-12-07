@@ -1,0 +1,58 @@
+## DBsubject(Prealgebra)
+## DBchapter()
+## DBsection()
+## Level()
+## KEYWORDS('conversions','units','temperature','celsius','fahrenheit')
+## TitleText1()
+## AuthorText1()
+## Section1()
+## Problem1()
+## Author(Caleb Bibb)
+## Institution(Lake City Academy)
+
+## Students will convert Celsius temperature to Fahrenheit temperature.
+
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "parserNumberWithUnits.pl",
+  "parserFormulaWithUnits.pl",
+);
+
+TEXT(beginproblem());
+
+######################################
+#  Setup
+
+Context("Numeric");
+$c = random(1,100,1);
+$f = 9 * $c / 5 + 32;
+$formatF = sprintf("%.2f", $f ); # round to 2 places after decimal point
+$answer = NumberWithUnits("$formatF","degF");
+
+######################################
+#  Main text
+
+BEGIN_TEXT
+
+Convert \($c^{\circ}\text{C}\) to degrees Farenheit. Round to the nearest hundredth and remember your units.
+$BR
+\{ ans_rule(10) \}
+\{ helpLink("units") \}
+END_TEXT
+
+######################################
+#  Answers
+
+$showPartialCorrectAnswers = 1;
+ANS($answer->cmp() );
+
+
+######################################
+
+
+ENDDOCUMENT();
